@@ -10,8 +10,8 @@ Python script that starts a Flask web application:
   cool
 - /number/<n>: display n is a number only if n is an integer
 - /number_template/<n>: display a HTML page only if n is an integer
-- /number_odd_or_even/<n>: display a HTML page only if n is an integer and 
-    H1 tag: Number: n is even|odd inside the tag BODY
+- /number_odd_or_even/<n>: display a HTML page only if n is an integer and
+  H1 tag: Number: n is even|odd inside the tag BODY
 """
 from flask import Flask
 from flask import render_template
