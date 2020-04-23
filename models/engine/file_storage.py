@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""This is the file storage class for AirBnB"""
+"""
+This is the file storage class for AirBnB
+"""
 import json
 from models.base_model import BaseModel
 from models.user import User
@@ -11,8 +13,9 @@ from models.review import Review
 
 
 class FileStorage:
-    """This class serializes instances to a JSON file and
-    deserializes JSON file to instances
+    """
+    This class serializes instances to a JSON file and deserializes JSON file
+    to instances
     Attributes:
         __file_path: path to the JSON file
         __objects: objects will be stored
@@ -21,7 +24,9 @@ class FileStorage:
     __objects = {}
 
     def all(self, cls=None):
-        """returns a dictionary
+        """
+        Returns a dictionary
+
         Return:
             returns a dictionary of __object
         """
@@ -34,7 +39,9 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        """sets __object to given obj
+        """
+        Sets __object to given obj
+
         Args:
             obj: given object
         """
@@ -43,14 +50,16 @@ class FileStorage:
             self.__objects[key] = obj
 
     def save(self):
-        """serialize the file path to JSON file path
+        """
+        Serialize the file path to JSON file path
         """
         odict = {o: self.__objects[o].to_dict() for o in self.__objects.keys()}
         with open(self.__file_path, "w", encoding="utf-8") as f:
             json.dump(odict, f)
 
     def reload(self):
-        """serialize the file path to JSON file path
+        """
+        Deserialize from the JSON file path to objects
         """
         try:
             with open(self.__file_path, 'r', encoding="UTF-8") as f:
@@ -61,9 +70,16 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
-        """delete obj from __objects
+        """
+        Delete obj from __objects
         """
         if obj:
             key = "{}.{}".format(type(obj).__name__, obj.id)
             if key in self.__objects:
                 del self.__objects[key]
+
+    def close(self):
+        """
+        Close session
+        """
+        reload(self)

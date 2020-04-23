@@ -1,6 +1,9 @@
 #!/usr/bin/python3
-"""This is the state class"""
+"""
+This is the state class
+"""
 import os
+import models
 from models.city import City
 from sqlalchemy import Column
 from sqlalchemy import String
@@ -10,7 +13,9 @@ from models.base_model import BaseModel
 
 
 class State(BaseModel, Base):
-    """This is the class for State
+    """
+    This is the class for State
+
     Attributes:
         name: input name
     """
@@ -22,9 +27,10 @@ class State(BaseModel, Base):
     else:
         @property
         def cities(self):
-            """Get the cities form the state.
             """
-            all_cities = models.engine.all(City)
+            Get the cities from the state.
+            """
+            all_cities = models.storage.all(City)
             st_cities = []
             for k, city in all_cities.items():
                 if city.state_id == self.id:
