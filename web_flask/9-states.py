@@ -31,7 +31,7 @@ def states():
 
 
 @app.route('/states/<id>')
-def states_id():
+def states_id(id):
     """
     Function associated to the '/states/<id>' path
     """
@@ -65,4 +65,4 @@ def cities_by_states():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
