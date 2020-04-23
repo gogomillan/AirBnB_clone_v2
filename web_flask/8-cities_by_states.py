@@ -3,7 +3,7 @@
 Python script that starts a Flask web application:
 - Uses storage for fetching data from the storage engine
 - /states_list: display a HTML page: (inside the tag BODY) UL states
-- /cities_by_states: display a HTML page: (inside the tag BODY) states->cities 
+- /cities_by_states: display a HTML page: (inside the tag BODY) states->cities
 """
 from flask import Flask
 from flask import render_template
