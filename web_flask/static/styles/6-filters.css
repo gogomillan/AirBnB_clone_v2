@@ -75,13 +75,13 @@ section.filters button:hover {
 }
 
 .popover h2 {
-    margin-top: 0px;
-    margin-bottom: 24px;
+    margin-top: 1px;
+    margin-bottom: 23px;
 }
 
 .locations > .popover > li {
-    margin-bottom: 30px;
     margin-left: 30px;
+    margin-bottom: 30px;
 }
 
 .locations > .popover > li > ul {
