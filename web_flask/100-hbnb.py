@@ -6,12 +6,14 @@ Python script that starts a Flask web application:
 - /states/<id>:  display a HTML page: (inside the tag BODY) UL state ->cities
 - /states_list: display a HTML page: (inside the tag BODY) UL states
 - /cities_by_states: display a HTML page: (inside the tag BODY) states->cities
+- /hbnb: display a HTML page: (inside the tag BODY) states->cities and Places
 """
 from flask import Flask
 from flask import render_template
 from models import storage
 from models.state import State
 from models.amenity import Amenity
+from models.place import Place
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
@@ -75,6 +77,17 @@ def filters():
     return render_template('10-hbnb_filters.html',
                            states=storage.all(State).values(),
                            amenities=storage.all(Amenity).values())
+
+
+@app.route('/hbnb')
+def hbnb():
+    """
+    Function associated to the '/hbnb/' path
+    """
+    return render_template('100-hbnb.html',
+                           states=storage.all(State).values(),
+                           amenities=storage.all(Amenity).values(),
+                           places=storage.all(Place).values())
 
 
 if __name__ == "__main__":
